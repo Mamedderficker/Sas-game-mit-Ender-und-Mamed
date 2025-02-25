@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Diagnostics.Metrics;
 using System.Threading;
+using Exit_Game.Story;
 using Text_adventures;
 
 class MainMenu
+
 {
     static void Main()
     {
+        bool SkipStart = false;
         Console.Title = "𝐌𝐀𝐌𝐄𝐃 𝐗 𝐄𝐍𝐃𝐄𝐑 [REINCARNATED AS A POWERFULL WARRIOR]";
 
         string rasse = "";
@@ -88,9 +91,7 @@ class MainMenu
             Console.WriteLine("║      MAIN MENU                 ║");
             Console.WriteLine("╠════════════════════════════════╣");
             Console.WriteLine("║  (1) Story Starten             ║");
-            Console.WriteLine("║  (2) Level                     ║");
-            Console.WriteLine("║  (3) Stats                     ║");
-            Console.WriteLine("║  (4) Exit                      ║");
+            Console.WriteLine("║  (2) Exit                      ║");
             Console.WriteLine("║                                ║");
             Console.WriteLine("╚════════════════════════════════╝");
             Console.WriteLine($"Rasse: {rasse} Ability: {ability}");
@@ -101,16 +102,9 @@ class MainMenu
 
             if (input == "1")
             {
-                StoryFunktion.StartStory();
+                StoryFunktion.StartStory(ref SkipStart);
             }
             else if (input == "2")
-            {
-                LevelFunktion.LevelSystem();
-            }
-            else if (input == "3")
-            {
-            }
-            else if (input == "4")
             {
                 ExitFunktion.Exit();
 
